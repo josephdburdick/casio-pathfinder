@@ -1,0 +1,2529 @@
+/*
+
+2012/06/01      VAV     Added style
+2012/06/15      VAV     Changed width from 350px to 500px 
+2012/06/15      VAV     Changed width from 550px to 400px 
+2012/06/15      VAV     changed margin-left from 80px to 0px
+2012/06/15      VAV     changed width from 482px to 402px
+2012/06/18      VAV     BEGIN - Entire feature icon block from legacy CSS
+2012/06/18      VAV     Removed 'display:block' from MSRP
+2012/06/19      VAV     New style for hotspot contents
+2012/06/20      VAV     Increased left margin to 50 from 29
+
+*/
+
+
+/*
+ * @FONT FACE
+ */
+@font-face {
+    font-family: 'Txt';
+    src: url('txt_____-webfont.eot');
+    src: url('txt_____-webfont.eot?#iefix') format('embedded-opentype'),
+         url('txt_____-webfont.woff') format('woff'),
+         url('txt_____-webfont.ttf') format('truetype'),
+         url('txt_____-webfont.svg#TxtRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'DINSchriftAlt';
+    src: url('din_1451_mittelschrift_alternate-webfont.eot');
+    src: url('din_1451_mittelschrift_alternate-webfont.eot?#iefix') format('embedded-opentype'),
+         url('din_1451_mittelschrift_alternate-webfont.woff') format('woff'),
+         url('din_1451_mittelschrift_alternate-webfont.ttf') format('truetype'),
+         url('din_1451_mittelschrift_alternate-webfont.svg#DINSchriftAlternate') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SerifaBlack';
+    src: url('12_serifa_75_black_09235-webfont.eot');
+    src: url('12_serifa_75_black_09235-webfont.eot?#iefix') format('embedded-opentype'),
+         url('12_serifa_75_black_09235-webfont.woff') format('woff'),
+         url('12_serifa_75_black_09235-webfont.ttf') format('truetype'),
+         url('12_serifa_75_black_09235-webfont.svg#SerifaBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SerifaBold';
+    src: url('12_serifa_65_bold_07235-webfont.eot');
+    src: url('12_serifa_65_bold_07235-webfont.eot?#iefix') format('embedded-opentype'),
+         url('12_serifa_65_bold_07235-webfont.woff') format('woff'),
+         url('12_serifa_65_bold_07235-webfont.ttf') format('truetype'),
+         url('12_serifa_65_bold_07235-webfont.svg#SerifaBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SerifaItalic';
+    src: url('12_serifa_56_italic_13235-webfont.eot');
+    src: url('12_serifa_56_italic_13235-webfont.eot?#iefix') format('embedded-opentype'),
+         url('12_serifa_56_italic_13235-webfont.woff') format('woff'),
+         url('12_serifa_56_italic_13235-webfont.ttf') format('truetype'),
+         url('12_serifa_56_italic_13235-webfont.svg#SerifaItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SerifaRoman';
+    src: url('12_serifa_55_roman_05235-webfont.eot');
+    src: url('12_serifa_55_roman_05235-webfont.eot?#iefix') format('embedded-opentype'),
+         url('12_serifa_55_roman_05235-webfont.woff') format('woff'),
+         url('12_serifa_55_roman_05235-webfont.ttf') format('truetype'),
+         url('12_serifa_55_roman_05235-webfont.svg#SerifaRoman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SerifaLightItalic';
+    src: url('12_serifa_46_light_italic_11235-webfont.eot');
+    src: url('12_serifa_46_light_italic_11235-webfont.eot?#iefix') format('embedded-opentype'),
+         url('12_serifa_46_light_italic_11235-webfont.woff') format('woff'),
+         url('12_serifa_46_light_italic_11235-webfont.ttf') format('truetype'),
+         url('12_serifa_46_light_italic_11235-webfont.svg#SerifaLightItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SerifaLight';
+    src: url('12_serifa_45_light_02235-webfont.eot');
+    src: url('12_serifa_45_light_02235-webfont.eot?#iefix') format('embedded-opentype'),
+         url('12_serifa_45_light_02235-webfont.woff') format('woff'),
+         url('12_serifa_45_light_02235-webfont.ttf') format('truetype'),
+         url('12_serifa_45_light_02235-webfont.svg#SerifaLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* HTML5 ✰ Boilerplate
+ * ==|== normalize ==========================================================
+ */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #febf27; color: #333; text-shadow: none; }
+
+a { color: #00e;text-decoration:none; }
+a:visited { color: #551a8b; }
+a:hover { color: #febf27; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+blockquote { margin: 1em 40px; }
+dfn { font-style: italic; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+small { font-size: 85%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+ul, ol { margin:0; list-style: none;list-style-type: none; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol,footer ul, footer ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+svg:not(:root) { overflow: hidden; }
+figure { margin: 0; }
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+label { cursor: pointer; }
+legend { border: 0; *margin-left: -7px; padding: 0; }
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+button, input { line-height: normal; *overflow: visible; }
+table button, table input { *overflow: auto; }
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+h1,h2,h3,h4,h5,h6{position:relative;font-weight: normal}
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+html,body{width:100%;height:100%}
+body{background:#333 none;}
+body.index{background:#333 url(../images/bg_physical-noRepeat.gif) top center no-repeat;}
+body.ambassadors            {background: url(../images/ambassadors/ambassadors_bg.png) top center no-repeat;}
+body.ambassadors-denali     {background: url(../images/ambassadors/1200px-Denali_National_Park.jpg) top center no-repeat;overflow:hidden;}
+body.ambassadors-mont_blanc {background: url(../images/ambassadors/023MontBlanc.png) top center no-repeat;overflow:hidden;}
+body.ambassadors-shangri_la {background: url(../images/ambassadors/ambassadors_bg.png) top center no-repeat;overflow:hidden;}
+body.ambassadors-paterson_nj{background: url(../images/ambassadors/PatersonNJ_bg.png) top center no-repeat;overflow:hidden;}
+
+#bg { position: fixed; top: 0; left: 0; }
+.bgwidth { width: 100%; }
+.bgheight { height: 100%; }
+.floatRight{ float:right; }
+.floatLeft{ float:left; }
+.center981px{
+    position:relative;
+    width:981px;
+    margin:0 auto;
+}
+.center{
+    position:relative;
+    margin:0 auto;
+}
+.rounded{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.absolute{position: absolute}
+ul, div, ul li, ol, ol li{position:relative;padding:0;}
+
+a, a:link,a:visited
+{
+/*  color:#e8a33a; */
+    color:#204e3c;
+}
+
+
+
+a:hover{color:#febf27;}
+.checkeredborder{
+    display: inline-block;
+    position:relative;
+    background:url(../images/bg_checkered.png) repeat;
+    float:left;
+    clear:both;
+}
+.checkeredborder > img{
+    display:block;
+    float:none;
+    margin:8px;
+}
+
+#main.cleartop{
+    margin-top:155px;
+}
+
+/*
+ * LINKS
+ */
+a.view-collection{
+    display: block;
+    position:absolute;
+    bottom:0;
+    right:0;
+    background:url(../images/btn_view_collection.png) bottom center no-repeat;
+    width:166px;
+    height:24px;
+    color:#fff;
+    font:normal 11px/21px "DINSchriftAlt",Helvetica, Arial;
+    text-transform:uppercase;
+    text-indent:43px;
+}
+a.view-collection:hover{
+    background-position: top center;
+    color:#373737;
+
+}
+a.hotspot{
+    position:absolute;
+    display:block;
+    width:34px;
+    height:33px;
+    background:url(../images/img_hotspot.png) no-repeat;
+    overflow:hidden;
+    text-indent: -999em;
+}
+
+/* 2012/06/19       VAV     New style for hotspot contents */
+a.hotspot div.contents
+{
+    position:relative;
+    top:0px;
+    left:0px;
+}
+
+/*
+ * BUTTONS
+ */
+a.btn-grey{
+    position:relative;
+    display:inline-block;
+    padding:0 15px;
+    background:#7a7a7a;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    
+    color:#fff;
+    font:normal 10px/30px "DINSchriftAlt", Helvetica, Arial;
+    
+    border-top:1px solid #eee;
+    border-bottom:1px solid #333;
+}
+a.btn-grey:hover{
+    background:#666;
+}
+a.btn-grey:active{
+    top:1px;
+    border-bottom:1px solid #fff;
+}
+a.btn-red{
+    position:relative;
+    display:inline-block;
+    padding:0 15px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    
+    font:normal 10px/30px "DINSchriftAlt", Helvetica, Arial;
+    
+    background:#febf27;
+    color:#373737;
+    
+}
+a.btn-red:hover{
+    background:#373737;
+    color:#fff;
+}
+
+a.buy-now-btn {
+    position:relative;
+    display:inline-block;
+    padding:0 15px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    
+    font:normal 14px/47px "DINSchriftAlt", Helvetica, Arial;
+    border-bottom:1px solid #d6120b;
+    border-top:1px solid #ff635d;
+    background:#f6180f;
+    color:#fff;
+    height: 40px;
+    margin-top:-10px;
+}
+
+a.buy-now-btn:hover{
+    background:#373737;
+}
+a.buy-now-btn:active{
+    top:1px;
+    border-bottom:1px solid #fff;
+}
+
+a.buy-now-btn_xp {
+/*  position:relative;
+    display:inline-block;*/
+    padding:0px;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    
+    font:normal 14px/47px "DINSchriftAlt", Helvetica, Arial;
+    
+    border-bottom:1px solid #d6120b;
+    border-top:1px solid #ff635d;
+    background:#fff00;
+    color:#222;
+    
+    margin:0px 5px;
+    
+}
+
+a.buy-now-btn_xp:hover{
+    background:#373737;
+    color:#fff;
+
+}
+
+
+
+a.buy-now-btn.xl{
+    font:normal 17px/40px "DINSchriftAlt", Helvetica, Arial;
+}
+a.buy-now-btn.xl:active{
+    border-bottom:1px solid #ccc;
+}
+
+.base-line-shift {
+    top: -2px;
+    position: relative;
+}
+html.oldie a.btn-red{
+    background:#ccc url(../images/btn-gradient-fff.png) repeat-x;
+}
+a.btn-red:hover{
+    background:#373737;
+}
+a.btn-red:active{
+    top:1px;
+    border-bottom:1px solid #fff;
+}
+a.btn-red.xl{
+    font:normal 17px/40px "DINSchriftAlt", Helvetica, Arial;
+}
+a.btn-red.xl:active{
+    border-bottom:1px solid #ccc;
+}
+a.index-youtube-curtain{
+    display:block;
+}
+
+/*COLUMN DEFINITIONS*/
+.ul-3col{
+    width:981px;
+    margin:0 auto;
+    /*left:-25px;*/
+    overflow:hidden;
+}
+.ul-3col > li{
+    width:317px;
+    float:left;
+    position:relative;
+    margin-left:15px;
+    margin-bottom:15px;
+}
+.ul-3col > li:first-child{
+    margin-left:0;
+}
+.ul-2col{
+    width:981px;
+    margin:0 auto;
+    /*left:-25px;*/
+    overflow:auto;
+}
+.ul-2col > li{
+    width:483px;
+    float:left;
+    position:relative;
+    margin-left:15px;
+    margin-bottom:15px;
+}
+.ul-2col > li:first-child{
+    margin-left:0;
+}
+
+ul.reg-2col{
+    margin:0 auto;
+    overflow: hidden;
+}
+ul.reg-2col > li{
+    width:490px;
+    position: relative;
+    float:left;
+}
+
+
+/* ==|== primary styles =====================================================
+   Author: Joe Burdick, Joe Mueller @ SGC
+   ========================================================================== */
+
+/*
+ * HEADER
+ */
+
+html,body {
+    height:100%;
+    overflow: hidden;
+}
+p{
+    font:normal 13px/1.4 "DINSchriftAlt", Helvetica, Arial;
+    color:#393939;
+}
+#container{
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
+header{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:991px;
+    margin-left:-498px;
+    z-index: 999;
+}
+header > h1{
+    margin:15px 0 15px 5px;
+}
+nav{
+    position:relative;
+    margin:0 auto;
+}
+    nav a, nav a:visited,nav a:link{
+        color:#3b3b3b;
+        text-transform: uppercase;
+    }
+    nav a:hover{
+        color:#febf27;
+    }
+ul#nav-primary{
+    
+    clear:both;
+    
+    margin:0 auto;
+    height:41px;
+    background:url(../images/bg_nav-primary.png) center center no-repeat;
+    
+    z-index:1;
+}
+ul#nav-primary > li{
+
+    position: relative;
+    float:left;
+    height:44px;
+    margin-left:50px;  /* 2012/06/20        VAV     Increased left margin to 50 from 29 */
+}
+html.oldie ul#nav-primary > li{
+    margin-left:27px;
+}
+ul#nav-primary > li > a, ul.dd > li > a{
+    font:normal 14px/40px "DINSchriftAlt", "Helvetica Neue", Helvetica;
+    letter-spacing:0.025em;
+}
+ul#nav-primary > li > a:hover{
+    color:#febf27;
+}
+ul#nav-primary > li > a:active, ul#nav-primary > li > a.active,
+ul#nav-secondary > li > a:active, ul#nav-secondary > li > a.active,
+ul.dd > li > a:active, ul.dd > li > a.active
+{
+    color:#febf27;
+    /*cursor:default;*/
+}
+ul#nav-secondary{
+    float:right;
+}
+ul#nav-secondary > li{
+    position: relative;
+    float:left;
+    height:35px;
+    margin-left:30px;
+}
+ul#nav-secondary > li:first-child{
+    margin:0;
+}
+ul#nav-secondary > li > a{
+    font:normal 9px/35px "DINSchriftAlt", "Helvetica Neue", Helvetica;
+}
+ul#nav-dropdown-products,ul#nav-dropdown-gshocklife,ul#nav-dropdown-technology,ul#nav-dropdown-support{
+    position:absolute;
+    display: none;
+   
+    bottom:-22px;
+}
+ul.dd > li,#nav-ambassadors-carousel > li{
+    position:relative;
+    float:left;
+    margin-left:21px;
+}
+#nav-ambassadors-carousel > li{
+    margin-left:5px;
+}
+ul.dd > li > a{
+    z-index:10;
+    line-height: 21px;
+    font-size:11px;
+    letter-spacing: .015em;
+    text-align:center;
+    display:inline-block;
+}
+ul.dd > li > a img, #nav-dropdown-ambassadors a img{
+    display:block;
+}
+ul#nav-dropdown-products{
+    left:8px;
+    height:26px;
+    width:234px;
+    background:url(../images/bg_dd-watches-noRepeat.png) top center no-repeat;
+}
+ul#nav-dropdown-support{
+    height:26px;
+    width:350px;
+    background:url(../images/bg_dd-support-noRepeat.png) top center no-repeat;
+    right: 10px;
+}
+#nav-dropdown-ambassadors {
+    /*left:500px;*/
+    height:68px;
+    width:899px;
+    background:url(../images/bg_dd-ambassadors-noRepeat.png) bottom center no-repeat;
+    position: absolute;
+    left: 50%;
+    margin: -5px 0 0 -451px;
+    overflow:hidden;
+    display:none;
+}
+.caroufredsel_wrapper{
+    position:relative;
+    margin:0 auto!important;
+}
+#nav-dropdown-ambassadors ul li:first-child{
+    margin-left:-14px!important;
+}
+#nav-dropdown-ambassadors ul li a{
+    display:inline-block;
+    width:115px;
+    height:68px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font: normal 11px/1.3 "SerifaLight";
+    text-transform:none;
+    text-align: center;
+}
+#nav-dropdown-ambassadors .btn-prevnext-xl{
+    top:-35px;
+    font-size:50px;
+    width:20px;
+}
+#nav-dropdown-ambassadors .btn-prevnext-xl.prev{
+    left:8px;
+}
+#nav-dropdown-ambassadors .btn-prevnext-xl.next{
+    right:8px;
+}
+
+    a.rollover{
+        position:relative;
+        display:block;
+        text-indent:-999em;
+    }
+    a.rollover:hover{
+    }   
+
+#main{
+    position: relative;
+    margin:0 auto;
+}
+
+
+/*
+ * SEARCH
+ */
+
+#searchForm fieldset {
+    width:120px;
+    position:relative;
+    display:block;
+    margin-top:3px;
+    margin-left:30px;
+    right:3px;
+    top:3px;
+}
+
+div.input {
+    position:absolute;
+    width:120px;
+    padding:3px 15px 6px 15px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 5px;
+    border:1px solid #d6d6d6;
+
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);
+    right:0;
+    background:#f1f1f1;
+}
+html.ie7 div.input{
+    position:inherit;
+    right:auto;
+}
+
+    div.input.focus {
+        border:1px solid #febf27;
+        box-shadow:0 0 6px #febf27, inset 0 1px 2px rgba(0,0,0,0.08);
+    }
+
+input#s {
+    width:100%;
+    border:0;
+    border-radius:20px;
+    background:transparent;
+    height:12px;
+    color:#3b3b3b;
+    position: relative;
+    top:2px;
+    font-size:10px;
+}
+
+    input#s:focus {
+        outline:none;
+
+    }
+
+input#searchSubmit {
+    width:19px;
+    height:19px;
+    text-indent:-9999px;
+    overflow:hidden;
+    background:url(../images/search-icon.png) no-repeat;
+    border:0;
+    position:absolute;
+    top:5px; right:13px;
+    z-index:5;
+    display:none;
+    cursor:pointer;
+    
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+    filter: alpha(opacity=25);
+    -moz-opacity: 0.25;
+    -khtml-opacity: 0.25;
+    opacity: 0.25;
+}
+html.ie7 div.input {
+    padding-right:0;
+    padding-left:0;
+}
+html.ie7 #searchForm fieldset{
+    margin-left:0;
+}
+html.oldie input#searchSubmit {
+    right:5px;  
+    padding-left:0;
+    padding-right:0;    
+}
+/*HEADER FB LOGO*/
+
+.facebook{
+    margin-left: 15px;
+    vertical-align: middle;
+}
+.social{
+    height:30px;
+    margin: 45px 0 0 600px;
+}
+a.mailing-list{ /* Updated 1/18/12 */
+    position:relative;
+    top:5px;
+    color:#fff;
+    text-transform: uppercase;
+    font:normal 14px/30px "DINSchriftAlt", "helvetica Neue", Helvetica;
+}
+.mail-input{
+    margin-bottom:20px;
+}
+
+/*
+ * HOME-CYCLE
+ */
+#homecycle-container{
+    position:relative;
+    width:100%;
+    height:600px;
+    margin-bottom: -35px;
+    z-index: 300;
+}   
+
+#homecycle-container > .center996px{
+    /*height:630px;*/
+}
+#ul-homecycle{
+    position:relative;
+    width:100% !important;
+    height:600px;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}   
+#ul-homecycle > li{
+    position:relative;
+    width:100% !important;
+    height:100%;
+    zoom:1;
+}
+    li.homecycle-northernexposure{
+        background: url(../images/index/slide-bg_NorthernExposure.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    /*html.oldie li.homecycle-northernexposure{
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/index/slide-bg_NorthernExposure.jpg', sizingMethod='scale');
+        -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/index/slide-bg_NorthernExposure.jpg', sizingMethod='scale')";
+    }*/
+    li.homecycle-watchtoughsolar{
+        background: url(../images/index/slide-bg_WatchToughSolar.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+    }
+    
+    /*html.oldie li.homecycle-watchtoughsolar{
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/index/slide-bg_WatchToughSolar.jpg', sizingMethod='scale');
+        -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/index/slide-bg_WatchToughSolar.jpg', sizingMethod='scale')";
+    }*/
+    
+        li.homecycle-thisisatest{
+        background: url(../images/index/far_east_bkg.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+    }
+    
+    li.homecycle-sammy-adams{
+        background: url(../images/index/sammy_adams_bkg.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+    }
+    
+    
+    
+#ul-homecycle > li > .center981px{
+    height:600px;
+}
+
+.btn-prevnext-xl{
+    display:block;
+    position: absolute;
+    width:61px;
+    height:121px;
+    /*background:url(../images/arr_leftright-xl-sprite.png) no-repeat;*/
+    top:220px;
+    z-index: 100;
+    font:normal 121px/121px "Cabin",Helvetica;
+    color:#fff;
+}
+.btn-prevnext-xl.left{
+    background-position: top left;
+    left:35px;
+}
+.btn-prevnext-xl.right {
+    background-position: top right;
+    right:35px;
+}
+
+.btn-prevnext-xl:hover{
+    text-shadow: 0 0 30px #febf27;
+}
+
+.btn-prevnext-alt
+{
+    font:bold 72px "Cabin", Helvetica;
+    color:#204e3c;
+}
+
+#ul-homecyclepager{
+    position: absolute;
+    top:510px;
+    z-index:100;
+    right: 50%;
+    margin-right: -490px;
+}
+#ul-homecyclepager li{
+    float:left;
+    margin-left:3px;
+}
+#ul-homecyclepager li a{
+    display:block;
+    width:17px;
+    height:16px;
+    background:url(../images/btn_cycleCircle-sprite.png) top center no-repeat;
+}
+#ul-homecyclepager li.active a{
+    background-position: bottom center;
+}
+
+
+.home-background{
+    position: relative;
+    z-index: 500;
+}
+.bucket-bg-watchfeatures{
+    width:500px;
+    height:245px;
+    position: absolute;
+    top:165px;right:35px;
+}
+.index-watchfeatures{
+    background:url(../images/index/bucket-bg_watchfeatures.png)
+}
+
+.index-youtube {
+    cursor: pointer;
+}
+
+.index-youtube iframe{
+    position: absolute;
+    width: 650px;
+    height: 360px;
+    left: 50%;
+    margin: 46px 0 0 -325px;
+}
+.bucket-bg-watchfeatures ul{
+    width:305px;
+    position: absolute;
+    right:10px;
+    bottom:65px;
+}
+.bucket-bg-watchfeatures ul li{
+    float:left;
+    position: relative;
+    margin-left:12px;
+}
+.bucket-bg-watchfeatures ul li:first-child{
+    margin-left:10px;
+}
+.bucket-bg-watchfeatures ul li a{
+    position:relative;
+    display:block;
+    background-position: top center;
+    width:27px;
+    height:30px;
+}
+.bucket-bg-watchfeatures ul li a:hover{
+    background-position: bottom center
+}
+a.altimeter  {background:url(../images/icon_altimeter-sprite.png) no-repeat}
+a.atomic     {background:url(../images/icon_atomic.jpg) no-repeat}
+a.barometer  {background:url(../images/icon_barometer.jpg) no-repeat}
+a.compass    {background:url(../images/icon_compass.jpg) no-repeat}
+a.solar      {background:url(../images/icon_solar.jpg) no-repeat}
+a.thermometer{background:url(../images/icon_thermometer.jpg) no-repeat}
+a.tidegraph  {background:url(../images/icon_tidegraph.jpg) no-repeat}
+a.autolight  {background:url(../images/icon_atomic.jpg) no-repeat}
+
+
+
+/***************************************************************************** 
+ *****************************************************************************
+|  2012/06/18       VAV     BEGIN - Entire feature icon block from legacy CSS
+*/
+
+
+.pop_icon_nav {
+    height:30px;
+    width:400px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/***************************************************************************** 
+|  Product Icon Nav
+*/
+
+.icon_info{
+padding: 0px 0px 0px 0px;
+}
+
+
+#Atomic {
+    float: left;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/atomic_icon.jpg) 0 0px;
+
+}
+#Atomic:hover {
+    background-position: 0 -31px;
+}
+#Atomic:active {
+    background-position: 0 -31px;
+}
+
+#Altimeter {
+    float: left;
+    margin-left: 4px;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/altimeter_icon.jpg) 0 0px;
+
+}
+#Altimeter:hover {
+    background-position: 0 -31px;
+}
+#Altimeter:active {
+    background-position: 0 -31px;
+}
+
+#Tidegraph {
+    float: left;
+    margin-left: 4px;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/tidegraph_icon.jpg) 0 0px;
+
+}
+#Tidegraph:hover {
+    background-position: 0 -31px;
+}
+#Tidegraph:active {
+    background-position: 0 -31px;
+}
+
+#Autolight {
+    display:block;
+    float: left;
+    margin-left: 4px;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/autolight_icon.jpg) 0 0px;
+
+}
+#Autolight:hover {
+    background-position: 0 -31px;
+}
+#Autolight:active {
+    background-position: 0 -31px;
+}
+
+
+#Solar {
+float: left;
+    margin-left: 4px;
+    display:block;
+    height:30px;
+    width:27px;
+    background: url(../images//nav/solar_icon.jpg) 0 0px;
+
+}
+#Solar:hover {
+    background-position: 0 -31px;
+}
+#Solar:active {
+    background-position: 0 -31px;
+}
+
+
+#Barometer {
+float: left;
+    margin-left: 4px;
+    display:block;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/barometer_icon.jpg) 0 0px;
+
+}
+#Barometer:hover {
+    background-position: 0 -31px;
+}
+#Barometer:active {
+    background-position: 0 -31px;
+}
+
+#Depth {
+    float: left;
+    margin-left: 4px;
+    display:block;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/depth_icon.jpg) 0 0px;
+
+}
+#Depth:hover {
+    background-position: 0 -31px;
+}
+#Depth:active {
+    background-position: 0 -31px;
+}
+
+#Compass {
+    float: left;
+    margin-left: 4px;
+    display:block;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/compass_icon.jpg) 0 0px;
+
+}
+#Compass:hover {
+    background-position: 0 -31px;
+}
+#Compass:active {
+    background-position: 0 -31px;
+}
+
+#Thermometer {
+    float: left;
+    margin-left: 4px;
+    display:block;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/thermometer_icon.jpg) 0 0px;
+
+}
+#Thermometer:hover {
+    background-position: 0 -31px;
+}
+#Thermometer:active {
+    background-position: 0 -31px;
+}
+
+#Diving {
+    float: left;
+    margin-left: 4px;
+    display:block;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/diving_log_icon.jpg) 0 0px;
+
+}
+#Diving:hover {
+    background-position: 0 -31px;
+}
+#Diving:active {
+    background-position: 0 -31px;
+}
+
+#sunrise {
+    float: left;
+    margin-left: 4px;
+    display:block;
+    height:30px;
+    width:27px;
+    background: url(../images/nav/sunrise_log_icon.jpg) 0 0px;
+
+}
+#sunrise:hover {
+    background-position: 0 -31px;
+}
+#sunrise:active {
+    background-position: 0 -31px;
+}
+
+/***************************************************************************** 
+|  2012/06/18       VAV     END - Entire feature icon block from legacy CSS
+ *****************************************************************************
+*/
+
+
+
+
+
+
+
+
+/*
+icon_barometer.jpg
+icon_compass.jpg
+icon_solar.jpg
+icon_thermometer.jpg
+icon_tidegraph.jpg
+*/
+
+/*
+ * SERIES
+ */
+
+
+.series-container{
+    height:577px;
+    position: relative;
+    background:url(../images/series/bg_content-noRepeat.png) top center no-repeat;
+    margin-bottom: 30px;
+}
+.series-container ul.reg-2col li:first-child{
+    width:330px;
+}
+.series-container h2{
+    font:normal 14px/21px "DINSchriftAlt", Helvetica, Arial;
+    color:#fff;
+    text-transform:uppercase;
+    margin:0 25px 0 0;
+    text-align: right;
+}
+.series-container p{
+    width:325px;
+    margin:0 0 20px 15px;
+    float:left;
+    font:normal 11px/1.3 "DINSchriftAlt", Helvetica, Arial;
+}
+.series-container h3{
+    font: normal 18px/1 "DINSchriftAlt", Helvetica, Arial;
+    margin: 0 0 20px 0px;
+    float: left;
+}
+.series-container h4{
+    font: normal 18px/1 "DINSchriftAlt", Helvetica, Arial;
+    margin: 0 0 6px 15px;
+    float: left;
+}
+
+/*
+ * PRODUCT
+ */
+
+/*
+ * PRODUCT
+ */
+
+#main.product ul.reg-2col > li{
+   /*  width:550px;  *//* 2012/06/15        VAV     Changed width from 550px to 400px */
+       width:453px;
+}
+#main.product ul.reg-2col > li:first-child{
+   /*  width:350px;  *//* 2012/06/15        VAV     Changed width from 350px to 500px */
+       width:535px;
+}
+#main.product ul.reg-2col > li div.side-links{
+       width:110px;
+       margin:30px auto 0;
+       text-transform: uppercase;
+       text-shadow:0 1px 1px #333;
+}
+#main.product ul.reg-2col > li div.side-links a{
+       font:normal 12px/1.2 "DINSchriftAlt", Helvetica, Arial;
+       color:#fff;
+       display:block;
+       margin-bottom:20px;
+}
+#main.product ul.reg-2col > li div.side-links a:hover{
+       color:#eee;
+}
+
+#main.product ul.reg-2col > li span.big{
+       font:normal 24px/1 "SerifaBold", Helvetica, Arial;
+   /*  color:#febf27;  *//* 2012/06/21      VAV     Changed color from #febf27 to #000000 */ 
+       color:#000000;
+   /*  display:block;  *//* 2012/06/18      VAV     Removed 'display:block' from MSRP */ 
+       margin-bottom: 20px;
+}
+
+
+#main.product ul.reg-2col > li span.small{
+       font-size:12px;
+}
+#main.product h2{
+       font:normal 60px/1 "SerifaLight", Helvetica, Arial;
+       color:#3b3b3b;
+       text-transform:uppercase;
+       margin:20px 0 10px 0;
+}
+#main.product p{
+       margin:0 0 15px 0;
+       font:normal 11px/1.3 "DINSchriftAlt", Helvetica, Arial;
+}
+#main.product h3{
+       font: normal 18px/1 "DINSchriftAlt", Helvetica, Arial;
+       position: relative;
+       top: -45px;
+       left: -80px;
+       margin-bottom: -40px;
+}
+#main.product ul.specs h4{
+       font: normal 12px/1.2 "DINSchriftAlt", Helvetica, Arial;
+       margin: 10px 15px 6px 15px;
+       color:#000;
+       text-transform: uppercase;
+}
+#main.product ul.specs{
+       background:#fff;
+   /*  margin: 80px 0 20px 80px;   *//* 2012/06/15      VAV     changed margin-left from 80px to 0px   */
+   /*  width:482px;                *//* 2012/06/15      VAV     changed width from 482px to 402px   */
+       margin: 80px 0 20px 0px;
+       width:382px;
+
+}
+#main.product ul.specs > li{
+       border-bottom:1px solid #d6d6d6;
+       color:#3b3b3b;
+}
+#main.product ul.specs > li:even{
+       background:#f9f9f9;
+}
+#main.product ul.specs > li > p{
+       margin:10px 15px;
+}
+#main.product .btn-prevnext-xl{
+       top:150px;
+}
+
+.split {
+       float: left;
+       width: 50%;
+       margin:0 15px 15px 0;
+}
+
+/*
+ * WATCHES - ALL
+ */
+
+div.watches-nav{
+    position:relative;
+    float:left;
+    width:115px;
+    background:url(../images/bg_trans-black60.png);
+    margin-right:3px;
+    font:normal 10px/14px Helvetica, Arial;
+    
+    -webkit-border-radius: 3px;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius: 3px;
+    -moz-border-radius-topright: 0;
+    border-radius: 3px;
+    border-top-right-radius: 0;
+/*  */
+}
+.watches-nav > h3{
+    font:normal 14px/21px "DINSchriftAlt", Helvetica, Arial;
+    color:#fff;
+    text-transform:uppercase;
+    margin:0 0 -25px 25px;
+}
+.watches-nav > h3:first-child{
+    margin-top:14px !important;
+}
+.watches-nav > ul{
+    margin:0 0 13px 16px;
+}
+.watches-nav > ul:last-child{
+    margin-bottom:18px;
+}
+.watches-nav > ul li{
+    position:relative;
+    display:block;
+    height:20px;
+    margin:0 0 3px 0;
+}
+html.oldie .watches-nav > ul li{
+    margin-bottom:5px;
+}
+.watches-nav > ul li > a{
+    position:relative;
+    display:inline-block;
+    padding:0 7px;
+    height:20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    
+    font:normal 9px/20px "Swiss721 Bold", Helvetica;
+
+    -moz-box-shadow:inset 0 -1px 5px #000000;
+    -webkit-box-shadow:inset 0 -1px 5px #000000;
+    box-shadow:inset 0 -1px 5px #000000;
+    
+    text-shadow:0 1px 0px #fff;
+    
+    border-bottom:1px solid #000;
+    border-top:1px solid #111;
+    background:#afafaf url(../images/btn-gradient-fff.png) top left repeat-x; /* Old browsers */
+}
+.watches-nav > ul li > a:not(.active):hover{
+    background:#fff;
+    -moz-box-shadow:inset 0 -1px 5px #000000;
+    -webkit-box-shadow:inset 0 -1px 5px #000000;
+    box-shadow:inset 0 -1px 5px #000000;
+    
+}
+.watches-nav > ul li > a.active{
+    background:#f6180f url(../images/btn-gradient-inactive.png) top left repeat-x;
+    color:#fff;
+    cursor:default;
+    
+    text-shadow:0 1px 1px #990000;
+    
+    -moz-box-shadow:inset 0 2px 5px #330000;
+    -webkit-box-shadow:inset 0 2px 5px #330000;
+    box-shadow:inset 0 2px 5px #330000;
+    
+    border-bottom:1px solid #555;
+    border-top:1px solid #000;
+    height:19px;
+}
+.watches-nav > ul li > a:not(.active):active{
+    top:1px;
+}
+div.watches-body{
+    position:relative;
+    width:981px;
+    margin:0 auto 20px auto;
+}
+#container.watches-detail{
+    overflow: auto;
+}
+.watches-series-container{
+    position:relative;
+    clear:both;
+    display:block;
+    margin-bottom:10px;
+    
+    width:100%;
+    
+    overflow:hidden;
+
+}
+.watches-series-container > h2{
+    font:normal 14px/21px "DINSchriftAlt", Helvetica, Arial;
+    color:#fff;
+    text-transform:uppercase;
+    margin:-15px 0 0 35px;
+    top:23px;
+    z-index: 100;
+}
+div.watches-series-list{
+    height:221px;
+    background:url(../images/watches/bg_series-noRepeat.png) top left no-repeat;
+    overflow:hidden;
+}
+div.watches-body.all div.watches-series-list{
+    height:188px;
+    background:url(../images/watches/bg_series-noRepeat.png) top left no-repeat;
+    overflow:hidden;
+    margin-bottom:4px;
+}
+div.watches-series-list ul{
+    position:relative;
+    overflow:hidden;
+    margin:30px 0 0 0;
+    height:165px;
+}
+.watches-body.readmore div.watches-series-list{
+    margin-top:30px;
+    background:url(../images/watches/bg_series-solid-noRepeat.png) top left no-repeat;
+}
+.watches-body.readmore div.watches-series-list ul li{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+div.watches-series-list ul.center{
+    left:50%;
+    margin:0 auto;
+    float:left;
+    overflow:visible;
+}
+ul.center{
+    left:50%;
+    margin:0 auto;
+    float:left;
+    overflow:visible;
+}
+ul.center li{
+    right:50%;
+}
+div.watches-series-list ul li{
+    position:relative;
+    float:left;
+    margin-left:8px;
+    /*display:inline-block;*/
+    width:100px;
+    height:165px;
+}
+div.watches-series-list ul.center li{
+    right:50%;
+}
+div.watches-series-list ul li a{
+    font:normal 10px/21px "DINSchriftAlt", Helvetica, Arial;
+    display:block;
+    text-align: center;
+    position:relative;
+    overflow: auto;
+    color:#2a2a2a;
+}
+div.watches-series-list ul li a:hover{
+    background:url(../images/bg_trans-white10.png);
+    color:#febf27;
+}
+div.watches-series-list ul li a:active{
+    color:#febf27;
+
+}
+div.watches-series-list ul li a img{
+    display:block;
+    margin:4px auto 0;
+    min-width:90px;
+    height:122px;
+}
+
+.numberCount{
+    position:absolute;
+    float:right;
+    right:15px;
+    padding:0 6px;
+    font:normal 10px/18px Arial, Helvetica, sans-serif;
+    font-weight:bolder;
+    text-shadow: 0px 1px 1px #400;
+    
+    text-indent:0;
+    letter-spacing: normal;
+    
+}
+.numberCount a{
+    display: inline-block;
+    margin:0 10px 0 0;
+    color:#fff;
+    text-decoration: none;
+}
+.numberCount a:hover{
+    text-decoration: underline;
+}
+.hoverscroll{top:35px!important}
+
+
+/*
+ * SPLASH
+ */
+.splash-txt{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-219px 0 0 -490px;
+}
+
+/*
+ * COLLECTION'S PAGE
+ */
+
+#collection p {
+    font:normal 11px/14px "DINSchriftAlt", "Helvetica Neue", Helvetica;
+
+}
+
+.collection-bg{
+    position:relative;
+    width:100%;
+    /*background:url(../images/collections/static_bg_Biking.png) top center no-repeat;*/
+    
+    
+}
+
+#collection .center981px {
+    margin: 160px auto 0;
+}
+#collection .watches-series-list{
+    background:none;
+    overflow: hidden;
+    height:162px;
+    position: absolute;
+    bottom:0;
+}
+#collection .watches-series-list ul{
+    overflow:hidden !important;
+}
+.collection-holder {
+    background:url(../images/collections/collections_bg_holder.png) top center no-repeat;
+    width: 981px;
+    height: 311px;
+    margin: 0 0 60px 0;
+}
+
+.solar-action-triple-sensor-bg{
+    background:url(../images/collections/pathfinder_sats_bg.jpg) no-repeat;
+    width: 643px;
+    height: 291px;
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+.solar-triple-sensor-bg{
+    background:url(../images/collections/pathfinder_sts_bg.jpg) no-repeat;
+    width: 664px;
+    height: 291px;
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+.triple-sensor-bg{
+    background:url(../images/collections/pathfinder_ts_bg.jpg) no-repeat;
+    width: 695px;
+    height: 291px;
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+.protrek-bg{
+    background:url(../images/collections/pathfinder_pt_bg.jpg) no-repeat;
+    width: 695px;
+    height: 291px;
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+#collection .feat-watch {
+    position: absolute;
+    width: 243px;
+    height: 335px;
+    top: -5px;
+    margin-left: 40px;
+    z-index: 20;
+}
+  
+.collection-content{
+    margin: 30px 0 0 332px;  
+    width: 555px;
+    position: absolute;
+    top: 0;
+    height:282px;
+}
+
+/*a.view-collection{
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    bottom: 0;
+    right:0;
+    text-transform: uppercase;
+    font-size:9px;
+    color: #fff;
+    height: 24px;
+    line-height: 24px;
+    width: 166px;
+    z-index: 9;
+    background:url(../images/collections/btn_view_collection.png) bottom left no-repeat;
+}*/
+
+/*a.view-collection:hover{
+    background:url(../images/collections/btn_view_collection.png) top left no-repeat;
+    color: #373737;
+    
+}*/
+
+/* 
+AMBASSADORS PAGE
+*/
+
+.ambassadors-bg {
+    position:relative;
+    width:100%;
+    /*background:url(../images/ambassadors/ambassadors_bg.png) top center no-repeat;*/
+}
+
+#ambassadors .center981px {
+    margin-top: 515px;
+}
+
+.mt-kailas{
+    position: absolute;
+    margin: -250px 0 0 448px;
+}
+
+ul.ambassadors-2col {
+    margin: 0;
+    padding:0;
+    width: 981px;
+    height: 500px;
+}
+
+.ambassadors-2col-left{
+    width: 644px;
+    min-height: 100px;
+    background-color: #fff;
+    border: solid #d8d8d8 1px;
+    float: left;
+    z-index: 10;
+}
+
+.ambassadors-2col-right a{
+    margin: 0 0 20px 160px;
+    padding: 0;
+    display: block;
+}
+
+#ambassadors .feat-watch {
+    position: relative;
+    margin: -95px 0 0 -105px;
+}
+
+#ambassadors .feat-label  /* 2012/06/01     VAV     Added style */
+{
+    position:absolute;
+    z-index:-1;
+    top:30px;
+    left:170px;
+}
+
+
+.ambassadors-2col-right{
+    width: 315px;
+    margin: 0 0 0 20px;
+    float:left;
+    z-index: 11;
+    background:#fff;
+}
+.ambassadors-2col-right h5{
+    font: normal 15px/1.5 "SerifaLight"; 
+    text-transform:uppercase;
+    position:relative;
+    margin:10px;
+}
+ul.ambassadors {
+    margin: 0px auto 15px;
+    padding:0;
+    width: 639px;
+    min-height: 65px;
+    background-color: #fff;
+    border: solid #d8d8d8 1px;
+
+}
+
+ul.ambassadors li {
+    float: left;
+    text-transform: uppercase;
+    margin: 20px 15px 0 15px;
+    line-height: 20px;
+    height: 20px;
+    font-size: 11px;
+    background:#fff;
+}
+
+ul.ambassadors li.active a{
+    background-color: #204e3c;
+    color:#FFF;
+    display: block;
+    padding: 0 5px 0 5px;
+}
+
+ul.ambassadors li a{
+    color:#3B3B3B;
+}
+
+ul.ambassadors li a:hover{
+    color:#febf27;
+}
+
+.ambassadors-content {
+    min-height: 65px;
+    background-color: #fff;
+    border: solid #d8d8d8 1px;
+    padding:0 0 40px;
+}
+
+
+.ambassadors-content h3{
+    margin: 60px 0 0 20px;
+    font-family:  "SerifaLight", Georgia, Times, serif;
+    font-size: 30px;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+
+.ambassadors-content h4{
+    margin: 5px 0 0 20px;
+    color: #aaa;
+    font: normal 11px/14px "DINSchriftAlt", "Helvetica Neue", Helvetica;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+
+.ambassadors-2col-left h5{
+    margin: 240px 0 0 20px;
+    font-family:  "SerifaLight", Georgia, Times, serif;
+    font-size: 15px;
+    line-height: 16px;
+    text-transform: uppercase;
+    font-weight:normal;
+}
+
+
+
+.feature-container {
+    margin: 17px 10px 20px 10px;
+}
+
+div.feature-container img {
+    float: left;    
+}
+
+.ambassadors-2col-right p{
+    width: 160px;
+    float:left;
+    margin: 0 0 20px 10px;
+}
+
+
+.ambassadors-content p{
+    margin: 20px;
+    
+}
+
+
+
+.column {
+    width: 320px;
+    float: left;
+}
+
+
+
+/*
+BUY PAGES
+*/
+.buy-bg{
+       position:relative;
+       width:100%;
+       
+       
+}
+
+#buy .center991px {
+       margin: 190px auto 0;
+       width:981px;
+}
+
+ul.buy-2col{
+       margin:0;
+       padding:0;
+}
+
+ul.buy-2col{
+       position:relative;
+       overflow:auto;
+}
+ul.buy-2col > li{
+       position:relative;
+       float:left;
+}
+
+ul.buy-2col li.buy-2col-left{
+       width:647px;
+       margin-right: 15px;
+       min-height: 65px;
+       background-color: #fff;
+       border: solid #d8d8d8 1px;
+       padding: 0;
+}
+.buy-content {
+       margin-top: 80px;       
+}
+
+ul.search {
+       margin: 0 30px 85px 30px;
+       height: 50px;
+       padding:0;
+}
+       
+ul.search li{
+       float: left;
+}
+
+li.city-info {
+       width: 320px;
+}
+
+li.search-details {
+       width:130px;    
+}
+
+.distance-select {
+       margin-right: 5px;
+}
+
+ul.store {
+       height: 10px;
+       margin-bottom: 5px;
+       padding: 0;
+}
+ul.store li{
+       float: left;
+}
+
+ul.store-info {
+       overflow: auto;
+       padding: 0;
+
+}
+
+ul.store-info li{
+       float: left;
+}
+
+li.store-name-header {
+       width: 280px;
+
+}
+
+li.store-number-header {
+       width:130px;
+}
+
+li.store-distance-header {
+       width:130px;
+}
+
+li.store-name {
+       width: 320px;
+       margin: 10px 0 0px 30px;
+}
+
+ p.buy-headers{
+       font: normal 14px/16px "DINSchriftAlt", "Helvetica Neue", Helvetica;
+}
+
+ p.store-headers{
+       font: normal 11px/0px "DINSchriftAlt", "Helvetica Neue", Helvetica;
+}
+
+input.submit-btn {
+       color: white;
+       background-color: #febf27;
+       border: none;
+       padding: 14px 20px 12px 20px;
+       margin-top: 33px;
+       text-transform: uppercase;
+       
+}
+
+li.store-number{
+       width:130px;
+       margin-top: 10px;
+}
+
+li.store-distance{
+       width:130px;
+       margin-top: 10px;
+}
+
+.even {
+       background-color: #e3e3e3;
+       margin-bottom: 1px;
+}
+
+.odd {
+       background-color: #fff;
+       margin-bottom: 1px;
+}
+
+.where-to-buy {
+       position: absolute;
+       margin: -20px 0 0 20px;
+       z-index: 20;
+}
+
+.where-to-buy-btn{
+       margin: 0 1px 6px 1px;
+       padding:0;
+}
+
+ul.buy-2col li.buy-2col-right {
+       width: 317px;
+       margin: 0;
+       min-height: 65px;
+       padding: 0;
+       background-color: #fff;
+
+}
+
+.store-container {
+       border-bottom: solid #d8d8d8 1px;
+       border-left: solid #d8d8d8 1px;
+       border-right: solid #d8d8d8 1px;
+       padding: 20px 15px 10px 15px;
+}
+
+.store-container a {
+       display: inline-block;
+}
+
+.first-store{
+       margin: 0 7px 9px 0;
+}
+
+.buy-headers {
+       font:normal 14px/14px "DINSchriftAlt", "Helvetica Neue", Helvetica;
+       text-transform:uppercase;
+       margin-bottom: 15px;
+}
+
+.page-header, .where-to-buy {
+    position: absolute;
+    margin: -20px 0 0 20px;
+    z-index: 20;
+}
+
+.where-to-buy-btn{
+    margin: 0 1px 6px 1px;
+    padding:0;
+}
+
+/* 
+FEATURES PAGE
+*/
+.din{
+   font-family: 'DINSchriftAlt'; 
+}
+.text-center{
+    text-align:center;
+}
+#main.feature-bg{
+    padding-top:515px;
+}
+.feature-cover{
+    /*background:url(../images/feature/bg_window-noRepeat.png) top center no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+}
+.feature-bg{
+    position:relative;
+    width:100%;
+}
+    .feature-bg.atomic{
+        background:url(../images/feature/bg_atomic-noRepeat.png) 48% 115px no-repeat scroll;
+    }
+    .feature-bg.solar{
+        background:url(../images/feature/bg_solar-noRepeat.png) 48% 115px no-repeat;
+    }
+    .feature-bg.compass{
+        background:url(../images/feature/bg_compass-noRepeat.png) 48% 115px no-repeat;
+    }
+    .feature-bg.altimeter{
+        background:url(../images/feature/bg_altimeter-noRepeat.png) 48% 115px no-repeat;
+    }
+    .feature-bg.barometer{
+        background:url(../images/feature/bg_barometer-noRepeat.png) 48% 115px no-repeat;
+    }
+    .feature-bg.thermometer{
+        background:url(../images/feature/bg_thermometer-noRepeat.png) 48% 115px no-repeat;
+    }
+    .feature-bg.tide{
+        background:url(../images/feature/bg_tide-noRepeat.png) 48% 115px no-repeat;
+    }
+    .feature-bg.autolight{
+        background:url(../images/feature/bg_autolight-noRepeat.png) 48% 115px no-repeat;
+    }
+.correct-time{
+    position: absolute;
+    margin: -130px 0 0 448px;
+}
+
+ul.feature-3col {
+    margin: 0;
+    padding:0;
+    width: 981px;
+    height: 500px;
+}
+
+ul.feature-3col li.feature-3col-left{
+    width: 190px;
+    min-height: 100px;
+    margin: 20px 0 0 0;
+    background-color: #fff;
+    border: solid #d8d8d8 1px;
+    float: left;
+    z-index: 10;
+}
+
+img.atomic-features {
+    margin: -80px 0 0 -10px;
+}
+
+
+ul.features {
+    margin: 20px 0;
+    padding: 0;
+    
+}
+
+ul.features li 
+{
+    text-align: right;  
+    line-height: 28px;
+    overflow:hidden; /* 2012/05/30      VAV     */
+    display:block;
+    clear;both;
+}
+
+ul.features li a {
+    display:block;
+    padding:10px;
+    color: #222;
+}
+
+ul.features li a:hover {
+    color: #fff;
+    background:#febf27;
+}
+ul.features li a.active,ul.features li a.active:hover {
+    color: #222;
+    background:#febf27;
+}
+.feature-icon{
+    background:url('../images/feature/icon_features-sprite.png') no-repeat;
+    display:inline-block;
+    margin:0 10px -9px 5px;
+    width:29px;
+    height:28px;
+}
+.feature-icon.atomic{
+    background-position: top center;
+}
+.feature-icon.solar{
+    background-position: center -37px;
+}
+.feature-icon.compass{
+    background-position: center -73px;
+}
+.feature-icon.altimeter{
+    background-position: center -111px;
+}
+.feature-icon.barometer{
+    background-position: center -148px;
+}
+.feature-icon.thermometer{
+    background-position: center -182px;
+}
+.feature-icon.tide{
+    background-position: center -220px;
+}
+.feature-icon.autolight{
+    background-position: bottom center;
+}
+
+div.feature-icon-container
+{
+    height:28px;
+    float: right;
+    margin-left: 5px;
+    overflow:hidden;
+}
+
+ul.features li a:hover {
+    background-position: top center;
+}
+
+.features-content {
+    padding-top: 15px;
+}
+
+.features-content p {
+    margin: 15px 45px 35px;
+}
+
+.feature-banner{
+    /*margin-top: 515px;*/
+    position:relative;
+}
+
+.feature-3col-center{
+    width: 772px;
+    min-height: 100px;
+    margin: 20px 15px 0 0;
+    padding-top: 48px;
+    background-color: #fff;
+    border: solid #d8d8d8 1px;
+    float: left;
+    z-index: 9;
+
+}
+
+
+.watch {
+    position: absolute;
+    z-index: 11;
+    left: 160px;
+    top: 180px;
+}
+
+#outer-beacon {
+       position:absolute;      
+       width: 158px;
+       height: 158px;
+       background:url(../images/feature/outer_ring.png) 0 0 no-repeat;
+       top:250px;
+       left:400px;
+       z-index:101;
+}
+
+#center-beacon {
+       position:absolute;      
+       width: 158px;
+       height: 158px;
+       background:url(../images/feature/center_ring.png) 0 0 no-repeat;
+       top:250px;
+       left:400px;
+       z-index:101;
+}
+
+#inner-beacon {
+       position:absolute;      
+       width: 158px;
+       height: 158px;
+       background:url(../images/feature/inner_ring.png) 0 0 no-repeat;
+       top:250px;
+       left:400px;
+       z-index:101;
+}
+
+
+#sensor {
+       width: 100px;
+       height: 100px;
+       background:url(../images/feature/sensor.png) 0 0 no-repeat;
+       position: absolute;
+       margin-top: 130px;
+       margin-left: 300px;
+       z-index: 12;
+       
+}
+
+.feature-3col-right{
+    width: 317px;
+    min-height: 100px;
+    margin-top: 20px;
+    float: left;
+    z-index: 9;
+}
+
+
+
+/* 
+SUPPORT PAGES
+*/
+#support div.center981px {
+    margin-top: 190px;  
+}
+
+.support-content {
+    margin: 50px 20px 20px 20px;    
+}
+
+
+ul.support-2col{
+    position:relative;
+    overflow:auto;
+}
+ul.support-2col > li{
+    position:relative;
+    float:left;
+}
+
+ul.support-2col li.support-2col-left{
+    width:647px;
+    margin-right: 15px;
+    min-height: 65px;
+    background-color: #fff;
+    border: solid #d8d8d8 1px;
+    padding: 0;
+}
+
+ul.support-2col li.support-2col-right {
+    width: 317px;
+    margin: 0;
+    min-height: 65px;
+    padding: 0;
+    background-color: #fff;
+}
+
+.contact-container {
+    border-bottom: solid #d8d8d8 1px;
+    border-left: solid #d8d8d8 1px;
+    border-right: solid #d8d8d8 1px;
+    padding: 20px 15px 10px 15px;
+}
+
+
+/* 
+WATCH LI STYLE
+*/
+
+div.watches-series-list{
+}
+div.watches-series-list ul{
+    position:relative;
+    /*overflow:auto;*/
+    margin: 0;
+    padding: 0;
+}
+
+div.watches-series-list ul li{
+    position:relative;
+    float:left;
+    margin:0 0 0 30px;
+    width:100px;
+}
+.collection-content .watches-series-list ul li{
+    margin:0 30px 0 0;
+}
+ul.center{
+    left:50%;
+    margin:0 auto;
+    float:left;
+    overflow:visible;
+}
+ul.center li{
+    right:50%;
+}
+div.watches-series-list ul.center li{
+    right:50%;
+}
+div.watches-series-list ul li a{
+    font:normal 10px/36px "DINSchriftAlt", "Helvetica Neue", Helvetica;
+    display:block;
+    text-align: center;
+    position:relative;
+    overflow: auto;
+    color:#2a2a2a;
+    text-shadow:0 1px 1px #eee;
+
+}
+div.watches-series-list ul li a:hover{
+    color: #febf27;
+}
+
+div.watches-series-list ul li a img{
+    display:block;
+    margin:10px auto 0;
+    min-width:92px;
+    height:121px;
+}
+
+.uppercase {
+    text-transform: uppercase;  
+}
+
+/* 
+SEARCH PAGE
+*/
+#search .center991px {
+       margin: 190px auto 0;
+       width:981px;
+}
+
+ul.search {
+       /*height: 10px; UPDATED 1/18/12*/
+       margin-bottom: 5px;
+       padding: 0;
+}
+ul.search li{
+       float: left;
+}
+
+ul.search-info {
+       overflow: auto;
+       padding: 0;
+}
+
+ul.search-info li{
+       float: left;
+}
+
+li.search-image {
+       width: 90px;
+       margin: 10px 0 20px 30px;
+}
+
+li.search-description{
+       width:500px;
+       margin-top: 0px;
+}
+
+li.search-title{
+       width:130px;
+       margin-top: 20px;
+}
+
+
+
+
+
+
+
+/*
+ * SCROLLBARS
+ */
+.tinyscroll { width: 635px; clear: both; margin: 50px 0 0; }
+.tinyscroll .viewport { width: 85%; height: 460px; overflow: hidden; position: relative; }
+.tinyscroll .overview { list-style: none; position: absolute; left: 0; top: 0; }
+.tinyscroll .thumb .end,
+.tinyscroll .thumb { background-color: #b0b0b0; }
+.tinyscroll .thumb:hover { background-color:#aaa;}
+.tinyscroll .thumb:hover .end { background-color:#aaa;}
+
+.tinyscroll .scrollbar { position: relative; float: right; width: 15px; }
+.tinyscroll .track { background-color: #fff; height: 100%; width:13px; position: relative; padding: 0 1px; }
+.tinyscroll .thumb { height: 20px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+.tinyscroll .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+.tinyscroll .disable{ display: none; }
+
+
+/*
+ * FOOTER
+ */ 
+    
+footer{
+    position: relative;
+    width:981px;
+    margin:50px auto 0;
+    height:40px;
+    border-top:7px solid #ccc;
+    clear:both;
+    float:none;
+    
+    overflow:hidden;
+}
+html.oldie footer{
+    
+}
+footer > ul{
+    height:38px;
+}
+footer > ul li{
+    position:relative;
+    padding:0;
+    float:left;
+    height:40px;
+    margin-left:20px;
+    font:normal 10px/36px "DINSchriftAlt", Helvetica, Arial;
+    color:#fff;
+    letter-spacing:0.12em;
+
+}
+footer > ul li.last{  /*UPDATED 1/18/12*/
+    margin-left:300px;
+}
+footer > ul li:first-child{
+    margin-left:15px;
+}
+footer ul li a{
+    color:#fff;
+    font:normal 10px/36px "DINSchriftAlt", Helvetica, Arial;
+}
+footer a:hover{
+    color:#ccc;
+}
+a#footer-casiologo{
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:30%;
+}
+a#footer-casiologo > img{
+    position:relative;
+    display:block;
+}
+
+
+/*YouTube Chromeless CSS*/
+
+div.video-player { margin: 46px auto 0; width:640px; height:350px; }
+    .video-controls { 
+      background: transparent; 
+      height: 30px;
+      margin: -45px 0 0;
+      position: relative;
+      width: 550px;
+    }
+    .status { height: 20px; left: 40px; position: absolute; top: 5px; width: 550px;display:none; }
+    .bar { background: #fff; height: 10px; position: relative; top: 5px; display:none; }
+    .loaded { background: #9b672f; height: 10px; left: 0; position: absolute; top: 0; }
+    .indicator { background: #9b672f; display: block; height: 10px; left: 0; position: absolute; top: 0; width: 20px; }
+    .play-pause, .volume { 
+      background: url(../images/btn-controls.png) no-repeat ;
+      display: block;
+      height: 20px;
+      overflow: hidden;
+      position: absolute;
+      text-indent: -9999px;
+      top: 5px;
+      width: 20px;
+    }
+    .play-pause { left: 20px; }
+    .playing { background-position: 0 -20px; }
+    .volume { background-position: 0 -60px; left: 60px; }
+    .muted { background-position: 0 -40px; }
+    .view-youtube { 
+      position:relative;
+      bottom:-1px;
+      width:78px;
+      margin:0 8px 0 0;
+      color: #000;
+      display: block;
+      text-indent:-9999em; 
+      float: right; 
+      font-size: 9px; 
+      height:30px;
+      line-height: 30px;
+      padding: 0 5px 0 0;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+.btn-close{
+    position:absolute;
+    right:20px;
+    top:18px;
+    overflow: auto;
+}
+.btn-close a{
+    display:block;
+    width:100%;
+    height:100%;
+    color:#c7a251;
+    text-align: center;
+    font:normal 10px/1.4 "Walkway", Helvetica, Arial;
+    letter-spacing:.19em;
+}
+.btn-close a:hover{
+    color:#eee;
+}
+
+
+
+
+/* ==|== non-semantic helper classes ======================================== */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+.hidden { display: none !important; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+/* ==|== media queries ====================================================== */
+
+@media only screen and (min-width: 480px) {
+
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+
+/* ==|== print styles ======================================================= */
+ 
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } 
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } 
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
